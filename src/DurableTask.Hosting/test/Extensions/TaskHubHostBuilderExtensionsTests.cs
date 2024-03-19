@@ -87,7 +87,7 @@ public class TaskHubHostBuilderExtensionsTests
         HostBuilderContext capturedContext = null;
         ITaskHubWorkerBuilder capturedBuilder = null;
         RunTest(
-            builder => builder.ConfigureTaskHubWorker((c, b) =>
+            (IHostBuilder builder) => builder.ConfigureTaskHubWorker((c, b) =>
             {
                 capturedContext = c;
                 capturedBuilder = b;
@@ -103,10 +103,10 @@ public class TaskHubHostBuilderExtensionsTests
     [Fact]
     public void Configure_HostApplicationBuilder_TaskHubWorker_Callback2()
     {
-        HostBuilderContext capturedContext = null;
+        IHostApplicationBuilder capturedContext = null;
         ITaskHubWorkerBuilder capturedBuilder = null;
         RunTest(
-            builder => builder.ConfigureTaskHubWorker((c, b) =>
+            (IHostApplicationBuilder builder) => builder.ConfigureTaskHubWorker((c, b) =>
             {
                 capturedContext = c;
                 capturedBuilder = b;
